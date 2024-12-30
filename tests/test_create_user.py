@@ -16,9 +16,8 @@ class TestCreateUser:
         ("password"),
         ("name")
     ])
-    def test_create_new_user_without_required_filed(self, change_field, create_random_user_data):
+    def test_create_new_user_without_required_filed(self, change_field, create_random_user_data, create_user):
         del create_random_user_data[change_field]
-        user = UserMethods()
-        user_data = user.post_create_user(create_random_user_data)
+        user_data = create_user.post_create_user(create_random_user_data)
         assert user_data[0] == 403
 
