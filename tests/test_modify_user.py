@@ -1,12 +1,10 @@
 import pytest
-import requests
-
 from methods.user_methods import *
 
 
 class TestModifyUser:
     @pytest.mark.parametrize("change_field, new_field", [
-        ("email", "1tqw24abddgfrd@ya.ru"),
+        ("email", "1tqw24xvdrd@ya.ru"),
         ("password", "qwerty"),
         ("name", "Maksim")
     ])
@@ -16,7 +14,7 @@ class TestModifyUser:
         assert new_patched_user_info[0] == 200
 
     @pytest.mark.parametrize("change_field, new_field", [
-        ("email", "1tqw241awddb12d@ya.ru"),
+        ("email", "1tqxvdd@ya.ru"),
         ("password", "qwerty"),
         ("name", "Maksim")
     ])

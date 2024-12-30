@@ -1,6 +1,4 @@
-import pytest
 import requests
-from requests import *
 from data import *
 
 

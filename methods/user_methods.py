@@ -1,6 +1,4 @@
-import pytest
 import requests
-from requests import *
 from data import *
 
 
@@ -21,3 +19,7 @@ class UserMethods:
     def patch_user_info(self, user_data, auth):
         patched_user_info = requests.patch(f"{USER_INFO_URL}", data=user_data, headers=auth)
         return patched_user_info.status_code, patched_user_info.json(), patched_user_info.text
+
+    def delete_user(self, auth):
+        delete_user = requests.delete(f"{USER_INFO_URL}", headers=auth)
+        return delete_user.status_code, delete_user.json(), delete_user.text

@@ -1,5 +1,4 @@
 import pytest
-from requests import *
 from randomizer import *
 from methods.user_methods import *
 from methods.order_methods import *
@@ -36,4 +35,5 @@ def get_auth_token(create_user, create_random_user_data):
     auth_token = create_user.post_create_user(create_random_user_data)
     token = auth_token[1]["accessToken"]
     auth = {"authorization": token}
-    return create_user, auth
+    yield create_user, auth
+    create_user.delete_user(auth)
